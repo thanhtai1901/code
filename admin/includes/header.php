@@ -87,7 +87,7 @@ if (isset($_SESSION["type"]) && $_SESSION["type"] != 0) {
               <a href="manage_products.php"><span class="icon image" aria-hidden="true"></span>Sản Phẩm</a>
             </li>
             <li>
-              <a href="manage_orders.php"><span class="icon paper" aria-hidden="true"></span>Orders</a>
+              <a href="manage_orders.php"><span class="icon paper" aria-hidden="true"></span>Đơn Hàng</a>
             </li>
         
             

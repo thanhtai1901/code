@@ -5,32 +5,6 @@ $result = mysqli_query($conn, $sql);
 $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <?php
-if (isset($_GET['do'])) {
-    if ($_GET['do'] == 'arrive') {
-        $id = $_GET['id'];
-        $sql = "UPDATE orders SET order_status='đã đến' WHERE order_id =$id";
-        $result = mysqli_query($conn, $sql);
-        redirect("manage_orders.php");
-    }
-    if ($_GET['do'] == 'deliver') {
-        $id = $_GET['id'];
-        $sql = "UPDATE orders SET order_status='đang giao' WHERE order_id =$id";
-        $result = mysqli_query($conn, $sql);
-        redirect("manage_orders.php");
-    }
-    if ($_GET['do'] == 'prepare') {
-        $id = $_GET['id'];
-        $sql = "UPDATE orders SET order_status='đang chuẩn bị' WHERE order_id =$id";
-        $result = mysqli_query($conn, $sql);
-        redirect("manage_orders.php");
-    }
-    if ($_GET['do'] == 'block') {
-        $id = $_GET['id'];
-        $sql = "UPDATE orders SET order_status='đã chặn' WHERE order_id =$id";
-        $result = mysqli_query($conn, $sql);
-        redirect("manage_orders.php");
-    }
-}
 ?>
 <div class="card-header">
     <h4 class="card-title">Quản lý Đơn hàng</h4>
@@ -69,16 +43,7 @@ if (isset($_GET['do'])) {
                             <td><?php echo isset($order['order_date']) ? $order['order_date'] : ''; ?></td>
                             <td><?php echo isset($order['order_total']) ? $order['order_total'] : ''; ?></td>
                             <td><?php echo isset($order['order_status']) ? $order['order_status'] : ''; ?></td>
-                            <td class="row">
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="manage_orders.php?do=prepare&id=<?php echo isset($order['order_id']) ? $order['order_id'] : ''; ?>" class="btn btn-outline-warning btn-sm">Đang chuẩn bị</a>
-                                    <a href="manage_orders.php?do=deliver&id=<?php echo isset($order['order_id']) ? $order['order_id'] : ''; ?>" class="btn btn-outline-primary btn-sm">Đang giao</a>
-                                </div>
-                                <div class="d-grid gap-2 d-md-block" style="margin-top: 10px;margin-left:20px;">
-                                    <a href="manage_orders.php?do=arrive&id=<?php echo isset($order['order_id']) ? $order['order_id'] : ''; ?>" class="btn btn-outline-success btn-sm">Đã đến</a>
-                                    <a href="manage_orders.php?do=block&id=<?php echo isset($order['order_id']) ? $order['order_id'] : ''; ?>" class="btn btn-outline-danger btn-sm">Đã chặn</a>
-                                </div>
-                            </td>
+                            
                         </tr>
                     <?php } ?>
                 </tbody>

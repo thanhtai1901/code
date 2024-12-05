@@ -369,7 +369,7 @@ if (isset($_GET['do'])) {
                 <div class="col-md-8">
                   <div class="form-group has-icon-left">
                     <div class="position-relative row justify-content-center align-items-center d-flex">
-                      <input name="image4" class="mt-2 p-2" type="file" />
+                      <input name="image5" class="mt-2 p-2" type="file" />
                       <div class="form-text" style='color:red;'>
                         <?php if (isset($imageError)) {
                           echo $imageError;
